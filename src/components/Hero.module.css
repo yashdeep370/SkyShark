@@ -1,0 +1,331 @@
+/* ===== HERO IMAGE ENTRANCE ===== */
+@keyframes heroImageIn {
+  from {
+    opacity: 0;
+    transform: scale(1.5) rotate(3deg);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+  }
+}
+.heroImageAnimate {
+  animation: heroImageIn 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+  animation-delay: 1s;
+  opacity: 0;
+}
+
+/* ===== WORD REVEAL ===== */
+@keyframes wordReveal {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+    filter: blur(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+.wordReveal {
+  opacity: 0;
+  display: inline-block;
+  margin-right: 0.3em;
+  animation: wordReveal 0.4s ease forwards;
+}
+
+/* ===== CTA ENTRANCE ===== */
+@keyframes slideUpScale {
+  from {
+    opacity: 0;
+    transform: translateY(60px) scale(0.4);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+.ctaAnimate {
+  opacity: 0;
+  animation: slideUpScale 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+  animation-delay: 1s;
+}
+
+/* ===== CTA BUTTON ===== */
+.ctaBtn {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  border: none;
+  background: none;
+  cursor: pointer;
+  border-radius: 9999px;
+  padding: 8px;
+  gap: 12px;
+}
+.ctaBtnBg {
+  position: absolute;
+  top: 5px;
+  bottom: 5px;
+  left: 8px;
+  width: calc(100% - 8px - 8px - 48px - 12px);
+  border-radius: 9999px;
+  background: #111111;
+  z-index: 0;
+  transition: width 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+@media (min-width: 768px) {
+  .ctaBtnBg {
+    width: calc(100% - 8px - 8px - 54px - 12px);
+  }
+}
+.ctaBtn:hover .ctaBtnBg {
+  width: calc(100% - 16px);
+}
+.ctaBtnText {
+  position: relative;
+  z-index: 1;
+  color: #f4f1e8;
+  font-weight: 500;
+  font-size: 16px;
+  padding: 12px 32px;
+  white-space: nowrap;
+}
+@media (min-width: 768px) {
+  .ctaBtnText {
+    font-size: 18px;
+    padding: 16px 40px;
+  }
+}
+.ctaBtnCircle {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: #75c5de;
+  flex-shrink: 0;
+  transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+@media (min-width: 768px) {
+  .ctaBtnCircle {
+    width: 54px;
+    height: 54px;
+  }
+}
+.ctaBtn:hover .ctaBtnCircle {
+  transform: translateX(-7px);
+}
+
+/* ===== NAVIGATION ===== */
+.logoWrapper {
+  position: fixed;
+  top: 30px;
+  left: 0;
+  width: 50%;
+  z-index: 10;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  mix-blend-mode: difference;
+  pointer-events: none;
+}
+@media (min-width: 768px) {
+  .logoWrapper {
+    top: 40px;
+  }
+}
+.logoWrapper .inner {
+  padding-left: 20px;
+  pointer-events: auto;
+}
+@media (min-width: 768px) {
+  .logoWrapper .inner {
+    padding-left: 40px;
+  }
+}
+.logoText {
+  font-family: var(--font-logo), sans-serif;
+  font-size: 26px;
+  letter-spacing: 0.06em;
+  color: #f4f1e8;
+  text-decoration: none;
+  white-space: nowrap;
+}
+@media (min-width: 768px) {
+  .logoText {
+    font-size: 32px;
+  }
+}
+
+.navPillWrapper {
+  position: fixed;
+  top: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+  display: none;
+}
+@media (min-width: 768px) {
+  .navPillWrapper {
+    top: 40px;
+    display: flex;
+  }
+}
+
+.navPill {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px;
+  border-radius: 9999px;
+  background: rgba(17, 17, 17, 0.08);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.navPillLink {
+  padding: 10px 22px;
+  border-radius: 9999px;
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #111111;
+  text-decoration: none;
+  transition: background 0.3s ease, color 0.3s ease, transform 0.2s ease;
+}
+.navPillLink:hover {
+  background: rgba(17, 17, 17, 0.08);
+  transform: translateY(-1px);
+}
+.navPillLinkActive {
+  background: #111111;
+  color: #f4f1e8;
+}
+.navPillLinkActive:hover {
+  background: #111111;
+  transform: none;
+}
+
+/* ===== HERO ===== */
+.hero {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  background: #e4e4e4;
+  min-height: 100vh;
+}
+@media (min-width: 768px) {
+  .hero {
+    height: 100vh;
+    min-height: 800px;
+  }
+}
+
+.heroBaseImg {
+  position: absolute;
+  top: 30vh;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 60% center;
+  z-index: 5;
+}
+@media (min-width: 768px) {
+  .heroBaseImg {
+    top: 0;
+    background-position: center;
+  }
+}
+
+.heroRevealImg {
+  position: absolute;
+  top: 30vh;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 60% center;
+  z-index: 7;
+  pointer-events: none;
+}
+@media (min-width: 768px) {
+  .heroRevealImg {
+    top: 0;
+    background-position: center;
+  }
+}
+
+.heroContent {
+  position: relative;
+  z-index: 8;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 100%;
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 110px 16px 24px 16px;
+  pointer-events: none;
+}
+@media (min-width: 768px) {
+  .heroContent {
+    position: absolute;
+    inset: 0;
+    justify-content: space-between;
+    padding: 160px 40px 100px 40px;
+  }
+}
+.heroContentInner {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 30px;
+  width: 100%;
+  pointer-events: auto;
+}
+
+.heroHeadline {
+  font-size: 22px;
+  font-weight: 500;
+  line-height: 120%;
+  letter-spacing: -0.02em;
+  color: #111111;
+  max-width: 447px;
+}
+@media (min-width: 768px) {
+  .heroHeadline {
+    font-size: 28px;
+  }
+}
+
+/* ===== CANVAS (hidden) ===== */
+.revealCanvas {
+  display: none;
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+/* ===== REDUCED MOTION ===== */
+@media (prefers-reduced-motion: reduce) {
+  .heroImageAnimate,
+  .wordReveal,
+  .ctaAnimate {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+    visibility: visible !important;
+  }
+}

@@ -1,0 +1,119 @@
+.fixedWrapper {
+  position: fixed;
+  top: 16px;
+  right: 0;
+  width: 50%;
+  z-index: 10;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  pointer-events: none;
+}
+@media (min-width: 768px) {
+  .fixedWrapper {
+    top: 27px;
+  }
+}
+.fixedWrapper .inner {
+  padding-right: 20px;
+  pointer-events: auto;
+}
+@media (min-width: 768px) {
+  .fixedWrapper .inner {
+    padding-right: 40px;
+  }
+}
+
+.burgerBtn {
+  width: 59px;
+  height: 59px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  align-items: center;
+  justify-content: center;
+  background: #f4f1e8;
+  transition: background 0.4s ease;
+}
+.burgerBtn:hover {
+  background: #0b0b0b;
+}
+.burgerBtn .bar {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: #111111;
+  transition: all 0.3s ease;
+}
+.burgerBtn:hover .bar {
+  background: #f4f1e8;
+}
+.burgerBtn.open {
+  background: #0b0b0b;
+}
+.burgerBtn.open .bar {
+  background: #f4f1e8;
+}
+.burgerBtn.open .bar:first-child {
+  transform: rotate(45deg) translate(2px, 2px);
+}
+.burgerBtn.open .bar:last-child {
+  transform: rotate(-45deg) translate(2px, -2px);
+}
+
+/* ===== MENU PANEL ===== */
+.menuPanel {
+  position: fixed;
+  z-index: 70;
+  top: 84px;
+  right: 16px;
+  width: 180px;
+  min-width: 160px;
+  max-width: 200px;
+  border-radius: 14px;
+  background: rgba(17, 17, 17, 0.97);
+  backdrop-filter: blur(26px);
+  -webkit-backdrop-filter: blur(26px);
+  padding: 8px;
+  transform: translateY(-8px) scale(0.97);
+  transform-origin: top right;
+  transition: transform 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity 0.2s ease;
+  opacity: 0;
+  pointer-events: none;
+}
+@media (min-width: 768px) {
+  .menuPanel {
+    top: 96px;
+    right: 40px;
+  }
+}
+.menuPanel.open {
+  transform: translateY(0) scale(1);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.menuPanel nav {
+  display: flex;
+  flex-direction: column;
+}
+.menuPanel nav a {
+  display: flex;
+  align-items: center;
+  height: 42px;
+  min-height: 40px;
+  max-height: 44px;
+  padding: 0 14px;
+  border-radius: 8px;
+  color: #f4f1e8;
+  font-size: 15px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: background 0.2s ease;
+}
+.menuPanel nav a:hover {
+  background: rgba(244, 241, 232, 0.1);
+}
